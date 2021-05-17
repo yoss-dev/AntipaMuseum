@@ -38,5 +38,21 @@ namespace AntipaMuseum.Controllers
 
             return NoContent();
         }
+
+        [HttpPatch]
+        public async Task<IActionResult> Patch(int visitorId, [FromBody] Visitor visitor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity();
+            }
+
+            if (!(await _visitorService.Exists(visitorId)))
+            {
+                return NotFound();
+            }
+
+            _visitorService.UpdateVisitor(visitor);
+        }
     }
 }

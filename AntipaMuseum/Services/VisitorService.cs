@@ -40,9 +40,25 @@ namespace AntipaMuseum.Services
             }
         }
 
-        private async Task<bool> Exists(int visitorId)
+        internal async Task<bool> Exists(int visitorId)
         {
             return await _dbContext.Visitors.FirstOrDefaultAsync(v => v.Id == visitorId) != null;
+        }
+
+        /// <summary>
+        /// Updates a visitor. Asumes the passed in visitorId corresponds to a valid visitor in the databse.
+        /// The passed in Visitor.Id will be ignored.
+        /// </summary>
+        /// <param name="visitor"></param>
+        /// <returns></returns>
+        public async Task UpdateVisitor(int visitorId, Visitor visitor)
+        {
+            var existingEntity = await _dbContext.Visitors.FirstAsync(v => v.Id == visitorId);
+
+            existingEntity.Age = visitor.Age;
+            existingEntity.Gender = visitor.Gender;
+
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
