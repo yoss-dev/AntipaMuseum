@@ -1,6 +1,7 @@
 ﻿using AntipaMuseum.Core.Models;
 using AntipaMuseum.Services;
 
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 using System;
@@ -10,13 +11,16 @@ using System.Threading.Tasks;
 
 namespace AntipaMuseum.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class VisitorController : ControllerBase
     {
         private readonly IVisitorService _visitorService;
-
-        public VisitorController(IVisitorService visitorService)
+        private readonly IHttpContextAccessor _httpContext;
+        public VisitorController(IVisitorService visitorService, IHttpContextAccessor httpContext)
         {
             _visitorService = visitorService;
+            _httpContext = httpContext;
         }
 
         [HttpGet]
@@ -24,7 +28,6 @@ namespace AntipaMuseum.Controllers
         {
             return Ok(await _visitorService.GetAll());
         }
-
 
         [HttpDelete]
         public async Task<IActionResult> Delete(int visitorId)
@@ -39,7 +42,7 @@ namespace AntipaMuseum.Controllers
             return NoContent();
         }
 
-        [HttpPatch]
+        [HttpPatch("{visitorId:int}")]
         public async Task<IActionResult> Patch(int visitorId, [FromBody] Visitor visitor)
         {
             if (!ModelState.IsValid)
@@ -55,6 +58,17 @@ namespace AntipaMuseum.Controllers
             await _visitorService.UpdateVisitor(visitorId, visitor);
 
             return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Visitor visitor)
+        {
+            if (!ModelState.IsValid) return UnprocessableEntity();
+
+            int id = await _visitorService.CreateVisitor(visitor);
+            var uri = new Uri(new Uri(_httpContext.HttpContext.Request.Host.Value), $"/visitor/{id}");
+
+            return Created(uri.AbsoluteUri, null);
         }
     }
 }

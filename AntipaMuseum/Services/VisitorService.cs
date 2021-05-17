@@ -30,6 +30,14 @@ namespace AntipaMuseum.Services
             return await _dbContext.Visitors.FirstOrDefaultAsync(v => v.Id == visitorId);
         }
 
+        public async Task<int> CreateVisitor(Visitor visitor)
+        {
+            _dbContext.Add(visitor);
+            await _dbContext.SaveChangesAsync();
+
+            return visitor.Id;
+        }
+
         public async Task DeleteVisitor(int visitorId)
         {
             if (await Exists(visitorId))

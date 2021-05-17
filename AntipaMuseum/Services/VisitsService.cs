@@ -27,9 +27,19 @@ namespace AntipaMuseum.Services
                 .ToListAsync();
         }
 
-        public Task<IEnumerable<Visit>> GetLastNMonthVisits(int visitorId, int lastNMonths)
+        public async Task<IEnumerable<Visit>> GetLastNMonthVisits(int visitorId, int lastNMonths)
         {
-            throw new NotImplementedException();
+            if (Math.Sign(lastNMonths) == 1)
+                lastNMonths *= -1;
+
+            var visits = await _dbContext.Visits
+                .OrderBy(v => v.VisitDate)
+                .Where(v => 
+                    (v.Id == visitorId) &&
+                    (v.VisitDate > DateTimeOffset.Now.AddMonths(lastNMonths)))
+                .ToListAsync();
+
+            return visits;
         }
 
         public async Task<Visit> GetLastVisit(int visitorId)

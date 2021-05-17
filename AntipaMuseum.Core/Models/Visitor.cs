@@ -13,7 +13,7 @@ namespace AntipaMuseum.Core.Models
 
         [Required]
         public int Age { get; set; }
-        public Gender Gender { get; set; }
+        public string Gender { get; set; }
         public bool IsChild { get => Age < 12; }
 
         public ICollection<Visit> Visits { get; set; }

@@ -3,6 +3,7 @@ using AntipaMuseum.Services;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +29,7 @@ namespace AntipaMuseum
             // Add app services
             services.AddScoped<IVisitorService, VisitorService>();
             services.AddScoped<IVisitsService, VisitsService>();
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -50,8 +51,6 @@ namespace AntipaMuseum
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

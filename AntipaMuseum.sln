@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntipaMuseum", "AntipaMuseu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntipaMuseum.Core", "AntipaMuseum.Core\AntipaMuseum.Core.csproj", "{CA806D76-C638-426F-829F-13C6FB0CF846}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject2", "TestProject2\TestProject2.csproj", "{9A55740C-9169-4B82-A0FD-23A9888F20CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CA806D76-C638-426F-829F-13C6FB0CF846}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA806D76-C638-426F-829F-13C6FB0CF846}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA806D76-C638-426F-829F-13C6FB0CF846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A55740C-9169-4B82-A0FD-23A9888F20CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A55740C-9169-4B82-A0FD-23A9888F20CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A55740C-9169-4B82-A0FD-23A9888F20CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A55740C-9169-4B82-A0FD-23A9888F20CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

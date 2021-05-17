@@ -7,6 +7,7 @@ namespace AntipaMuseum.Services
 {
     public interface IVisitorService
     {
+        Task<int> CreateVisitor(Visitor visitor);
         Task DeleteVisitor(int visitorId);
         Task<IEnumerable<Visitor>> GetAll();
         Task<Visitor> GetVisitorById(int visitorId);

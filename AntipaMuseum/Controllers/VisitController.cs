@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace AntipaMuseum.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class VisitController: ControllerBase
     {
         private readonly IVisitsService _visitsService;
@@ -19,7 +21,7 @@ namespace AntipaMuseum.Controllers
             _visitorService = visitorService;
         }
 
-        [HttpGet]
+        [HttpGet("/visits/last/{visitorId:int}")]
         public async Task<IActionResult> GetLastVisit(int visitorId)
         {
             if (!(await _visitorService.Exists(visitorId))) return NotFound();
