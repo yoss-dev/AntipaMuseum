@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntipaMuseum", "AntipaMuseum.csproj", "{1157284C-C0C6-4D70-AB49-2117CB5BA3A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntipaMuseum", "AntipaMuseum\AntipaMuseum.csproj", "{1157284C-C0C6-4D70-AB49-2117CB5BA3A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntipaMuseum.Core", ".\AntipaMuseum.Core\AntipaMuseum.Core.csproj", "{CA806D76-C638-426F-829F-13C6FB0CF846}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntipaMuseum.Infrastructure", ".\AntipaMuseum.Infrastructure\AntipaMuseum.Infrastructure.csproj", "{9A4FC773-D700-4509-9AB5-50B37640FDD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntipaMuseum.Core", "AntipaMuseum.Core\AntipaMuseum.Core.csproj", "{CA806D76-C638-426F-829F-13C6FB0CF846}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{CA806D76-C638-426F-829F-13C6FB0CF846}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA806D76-C638-426F-829F-13C6FB0CF846}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA806D76-C638-426F-829F-13C6FB0CF846}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A4FC773-D700-4509-9AB5-50B37640FDD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A4FC773-D700-4509-9AB5-50B37640FDD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A4FC773-D700-4509-9AB5-50B37640FDD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A4FC773-D700-4509-9AB5-50B37640FDD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
