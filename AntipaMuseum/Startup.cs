@@ -1,4 +1,5 @@
 using AntipaMuseum.Data;
+using AntipaMuseum.Services;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,10 @@ namespace AntipaMuseum
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AntipaDbContext>(opt => opt.UseInMemoryDatabase("AntipaDb"));
+
+            // Add app services
+            services.AddScoped<IVisitorService, VisitorService>();
+            services.AddScoped<IVisitsService, VisitsService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

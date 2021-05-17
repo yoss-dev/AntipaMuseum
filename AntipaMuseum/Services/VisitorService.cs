@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AntipaMuseum.Services
 {
-    public class VisitorService
+    public class VisitorService : IVisitorService
     {
         private readonly AntipaDbContext _dbContext;
 
@@ -40,7 +40,7 @@ namespace AntipaMuseum.Services
             }
         }
 
-        internal async Task<bool> Exists(int visitorId)
+        public async Task<bool> Exists(int visitorId)
         {
             return await _dbContext.Visitors.FirstOrDefaultAsync(v => v.Id == visitorId) != null;
         }

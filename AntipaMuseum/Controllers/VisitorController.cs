@@ -12,9 +12,9 @@ namespace AntipaMuseum.Controllers
 {
     public class VisitorController : ControllerBase
     {
-        private readonly VisitorService _visitorService;
+        private readonly IVisitorService _visitorService;
 
-        public VisitorController(VisitorService visitorService)
+        public VisitorController(IVisitorService visitorService)
         {
             _visitorService = visitorService;
         }
@@ -52,7 +52,9 @@ namespace AntipaMuseum.Controllers
                 return NotFound();
             }
 
-            _visitorService.UpdateVisitor(visitor);
+            await _visitorService.UpdateVisitor(visitorId, visitor);
+
+            return NoContent();
         }
     }
 }
